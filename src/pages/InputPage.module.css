@@ -1,0 +1,37 @@
+::-webkit-input-labelName {
+  /* Chrome/Opera/Safari */
+  color: rgb(48, 23, 163);
+  font-size: 2rem;
+}
+::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: rgb(54, 201, 224);
+    font-size: 2rem;
+  }
+  
+  .submitButton {
+    margin-top: 1rem;
+    background-color: rgb(48, 23, 163);
+    border: none;
+    padding: 1rem 2rem;
+    color: rgb(220, 220, 220);
+    text-transform: uppercase;
+    border-radius: 1rem;
+  }
+  
+  .submitButton:hover {
+    cursor: pointer;
+  }
+  
+  .disabled {
+    background-color: rgb(71, 44, 146);
+  }
+  
+  .disabled:hover {
+    cursor: not-allowed;
+  }
+  
+  .tryAgain:hover {
+    cursor: pointer;
+  }
+  

@@ -2,14 +2,17 @@ import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import styles from "./CountryDetails.module.css";
 
+const COUNTRY_API="https://restcountries.com/v3.1/name";
+
 const CountryDetails = () => {
   const localState:any = useLocation().state;
   const [locationData, setLocationData] = useState<any>({
     location: { name: "", country: "", latitude: "",longitude:"" },
     current: { temperature: "",wind_speed:"", weather_icons: [], timezone_id: "" },
   });
-  //const country_name=locationData.location.name;
-  const quote = "\""; 
+  
+  const country_name=locationData.location.country;
+  //const quote = "\""; 
   const navigate = useNavigate();
   const [show,setShow]=useState(false);
 
@@ -22,17 +25,18 @@ const CountryDetails = () => {
     }
   }, []);
 
+  
   const [population, setPopulation] = useState<any[]>([]);
   const[flag,setFlag] =useState(" ")
   const fetchData = async() => {
-    let base_url="https://restcountries.com/v3.1/name/"+quote+locationData.location.name+quote;
-   
-    const response=await fetch(base_url)
+    //let base_url="https://restcountries.com/v3.1/name/"+quote+locationData.location.name+quote
+    
+    const response=await fetch(`${COUNTRY_API}/${country_name}`)
     const data=await response.json();
-
+    
     setPopulation(data[0].population);
-    setFlag(data[0].flags.png);
-    /*console.log(data);*/
+    setFlag(data[0].flags.png); 
+    console.log(data);
   };
 
   useEffect(() => { fetchData(); }, []);
@@ -66,11 +70,11 @@ const CountryDetails = () => {
             src={locationData.current.weather_icons[0]}
           />
           <span>
-            Temperature:{locationData.current.temperature}
+            Temperature:{locationData.current.temperature} 
             <sup>°C</sup>
           </span>
           <span>
-            Wind speed: {locationData.current.wind_speed}
+            Wind speed: {locationData.current.wind_speed} kmph
           </span> 
           <span>
             Timezone ID: {locationData.location.timezone_id}

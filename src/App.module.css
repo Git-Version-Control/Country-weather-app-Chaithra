@@ -1,0 +1,25 @@
+
+.header {
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 1.5rem;
+  background-color: rgb(2, 31, 121);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  display: block;
+  text-decoration: none;
+  font-size: x-large;
+  color: rgb(254, 254, 254);
+  box-shadow: 0 12px 0px 2px lightskyblue;
+}
+
+.appContainer {
+  max-width: 650px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
